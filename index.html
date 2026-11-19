@@ -27,11 +27,18 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       box-shadow: 0 8px 28px rgba(37, 99, 235, 0.07), 0 1px 2px rgba(15, 23, 42, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.92);
+    }
+    .sidebar-panel {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-right: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 4px 0 28px rgba(37, 99, 235, 0.05);
     }
     .hero-card {
       background: linear-gradient(135deg, #3b82f6 0%, #2563eb 55%, #1d4ed8 100%);
-      box-shadow: 0 14px 32px rgba(37, 99, 235, 0.30);
+      box-shadow: 0 14px 32px rgba(37, 99, 235, 0.28);
     }
     .fab-btn {
       background: linear-gradient(145deg, #4f8dfd 0%, #2563eb 60%, #1d4ed8 100%);
@@ -52,13 +59,13 @@
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
     .animate-fade-up { animation: fadeUp 0.22s ease-out; }
   </style>
 </head>
-<body class="pb-28">
+<body class="pb-28 lg:pb-0">
 
   <!-- LOADING SCREEN -->
   <div id="loading-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 via-white to-emerald-50">
@@ -73,7 +80,7 @@
 
   <!-- LOGIN SCREEN -->
   <div id="login-screen" class="hidden fixed inset-0 z-40 flex items-center justify-center p-6 bg-gradient-to-br from-blue-100/80 via-white to-emerald-100/70">
-    <div class="w-full max-w-sm glass-card rounded-3xl p-7 text-center animate-fade-up">
+    <div class="w-full max-w-sm glass-card rounded-3xl p-8 text-center animate-fade-up">
       <div class="w-20 h-20 mx-auto rounded-3xl hero-card flex items-center justify-center mb-5">
         <svg class="w-11 h-11 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
@@ -122,17 +129,17 @@
       <p id="pin-error" class="text-xs text-red-500 font-medium h-5 mb-2"></p>
 
       <div class="grid grid-cols-3 gap-3 mt-2">
-        <button data-pin="1" class="pin-key h-13 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">1</button>
-        <button data-pin="2" class="pin-key h-13 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">2</button>
-        <button data-pin="3" class="pin-key h-13 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">3</button>
-        <button data-pin="4" class="pin-key h-13 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">4</button>
-        <button data-pin="5" class="pin-key h-13 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">5</button>
-        <button data-pin="6" class="pin-key h-13 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">6</button>
-        <button data-pin="7" class="pin-key h-13 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">7</button>
-        <button data-pin="8" class="pin-key h-13 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">8</button>
-        <button data-pin="9" class="pin-key h-13 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">9</button>
+        <button data-pin="1" class="pin-key py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">1</button>
+        <button data-pin="2" class="pin-key py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">2</button>
+        <button data-pin="3" class="pin-key py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">3</button>
+        <button data-pin="4" class="pin-key py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">4</button>
+        <button data-pin="5" class="pin-key py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">5</button>
+        <button data-pin="6" class="pin-key py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">6</button>
+        <button data-pin="7" class="pin-key py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">7</button>
+        <button data-pin="8" class="pin-key py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">8</button>
+        <button data-pin="9" class="pin-key py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">9</button>
         <button id="pin-cancel" class="py-3 rounded-2xl text-xs font-semibold text-slate-500 hover:bg-slate-100">Batal</button>
-        <button data-pin="0" class="pin-key h-13 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">0</button>
+        <button data-pin="0" class="pin-key py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-lg font-bold text-slate-800">0</button>
         <button id="pin-del" class="py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-700 flex items-center justify-center">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9.75L14.25 12m0 0l2.25 2.25M14.25 12l2.25-2.25M14.25 12L12 14.25m-2.58 4.92l-6.375-6.375a1.125 1.125 0 010-1.59L9.42 4.83c.211-.211.498-.33.796-.33H19.5a2.25 2.25 0 012.25 2.25v10.5a2.25 2.25 0 01-2.25 2.25h-9.284c-.298 0-.585-.119-.796-.33z"/></svg>
         </button>
@@ -140,197 +147,322 @@
     </div>
   </div>
 
-  <!-- MAIN APP SHELL -->
-  <div id="app-shell" class="hidden max-w-md mx-auto px-4 pt-5">
+  <!-- RESPONSIVE APP LAYOUT -->
+  <div id="app-shell" class="hidden min-h-screen lg:flex">
 
-    <!-- TAB: BERANDA -->
-    <section id="tab-home" class="space-y-4 animate-fade-up">
-      <div class="flex items-start justify-between">
-        <div>
-          <h1 class="text-xl font-extrabold text-slate-900 tracking-tight leading-tight">KELUARGA ME RONA</h1>
-          <p class="text-xs text-slate-500 font-medium mt-0.5">Dokumen dari Keluarga Rouf dan Nanik</p>
+    <!-- DESKTOP SIDEBAR (tampil di PC / layar >= lg) -->
+    <aside class="hidden lg:flex lg:flex-col lg:w-72 lg:fixed lg:inset-y-0 sidebar-panel z-30 p-5 justify-between">
+      <div class="space-y-6">
+        <!-- Brand -->
+        <div class="flex items-center gap-3 px-1">
+          <div class="w-11 h-11 rounded-2xl hero-card flex items-center justify-center shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+            </svg>
+          </div>
+          <div class="min-w-0">
+            <h1 class="text-base font-extrabold text-slate-900 tracking-tight leading-tight truncate">KELUARGA ME RONA</h1>
+            <p class="text-[11px] text-slate-500 font-medium truncate">Dokumen Rouf &amp; Nanik</p>
+          </div>
         </div>
-        <button id="btn-quick-privacy" title="Mode Privasi" class="p-2.5 rounded-2xl glass-card text-slate-600 hover:text-blue-600 transition">
-          <svg id="icon-eye-open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          <svg id="icon-eye-closed" class="w-5 h-5 hidden text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"/></svg>
+
+        <!-- Primary Action Button -->
+        <button onclick="openDocModal()" class="w-full py-3.5 px-4 rounded-2xl hero-card text-white font-bold text-sm flex items-center justify-center gap-2 hover:brightness-105 active:scale-[0.98] transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+          Tambah Dokumen
         </button>
-      </div>
 
-      <!-- Hero Status Card -->
-      <div onclick="switchTab('profile')" class="hero-card rounded-3xl p-5 text-white relative overflow-hidden cursor-pointer active:scale-[0.99] transition">
-        <div class="absolute -right-8 -top-8 w-36 h-36 bg-white/10 rounded-full blur-xl"></div>
-        <div class="flex items-center gap-4 relative z-10">
-          <div class="w-16 h-16 shrink-0 rounded-2xl bg-white/15 backdrop-blur flex items-center justify-center border border-white/25">
-            <div class="w-11 h-11 rounded-xl bg-emerald-400 flex items-center justify-center shadow-lg">
-              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
-              </svg>
-            </div>
-          </div>
-          <div class="flex-1 min-w-0">
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/20 text-[11px] font-semibold mb-2">
-              <span class="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span>
-              <span id="sync-status-text">Tersinkron otomatis</span>
-            </div>
-            <h2 class="text-base font-extrabold leading-snug">Dokumen Anda Aman &amp; Tertata</h2>
-            <p class="text-xs text-blue-100 mt-0.5">Backup cloud Firebase aktif</p>
-          </div>
-          <svg class="w-5 h-5 text-white/80 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
-        </div>
-      </div>
-
-      <!-- Summary Cards Grid -->
-      <div class="grid grid-cols-2 gap-3.5">
-        <div onclick="switchTab('reminders')" class="glass-card rounded-3xl p-4 cursor-pointer active:scale-[0.98] transition">
-          <div class="flex items-center justify-between mb-3">
-            <div id="home-exp-circle" class="w-11 h-11 rounded-full border-4 border-rose-500/80 flex items-center justify-center text-sm font-extrabold text-rose-600 bg-rose-50">0</div>
-            <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-600 text-xs font-bold">Cek</span>
-          </div>
-          <p class="text-sm font-extrabold text-slate-800 leading-tight">Perlu diperpanjang</p>
-          <p id="home-exp-sub" class="text-[11px] text-slate-500 mt-1 truncate">Semua dokumen aman</p>
-        </div>
-
-        <div onclick="openCategory('Semua')" class="glass-card rounded-3xl p-4 cursor-pointer active:scale-[0.98] transition">
-          <div class="mb-3">
-            <div class="w-11 h-11 rounded-2xl bg-amber-50 flex items-center justify-center text-2xl">📁</div>
-          </div>
-          <p id="home-total-docs" class="text-2xl font-extrabold text-slate-900 leading-none">0</p>
-          <p id="home-total-sub" class="text-[11px] text-slate-500 mt-1.5">Total dokumen • 0 anggota</p>
-        </div>
-      </div>
-
-      <!-- Kategori Section -->
-      <div class="pt-1">
-        <div class="flex items-center justify-between mb-3">
-          <h3 class="text-base font-extrabold text-slate-900">Kategori</h3>
-          <button onclick="openCategory('Semua')" class="text-xs font-bold text-blue-600 hover:text-blue-700">Semua dokumen &rsaquo;</button>
-        </div>
-        <div id="home-categories-grid" class="grid grid-cols-3 gap-3"></div>
-      </div>
-    </section>
-
-    <!-- TAB: CARI -->
-    <section id="tab-search" class="hidden space-y-4 animate-fade-up">
-      <div class="relative">
-        <svg class="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
-        <input id="search-input" type="text" placeholder="Cari KTP, SIM, STNK, nama, nomor..." class="w-full pl-11 pr-4 py-3.5 rounded-2xl glass-card text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-      </div>
-
-      <div>
-        <p class="text-xs font-bold text-slate-500 mb-2">Kategori</p>
-        <div id="search-cat-pills" class="flex gap-2 overflow-x-auto no-scrollbar pb-1"></div>
-      </div>
-
-      <div>
-        <p class="text-xs font-bold text-slate-500 mb-2">Anggota keluarga</p>
-        <div id="search-member-pills" class="flex gap-2 overflow-x-auto no-scrollbar pb-1"></div>
-      </div>
-
-      <div>
-        <div class="flex items-center justify-between mb-2.5">
-          <p id="search-count-label" class="text-xs font-bold text-slate-600">Semua dokumen (0)</p>
-          <button id="btn-reset-filter" onclick="resetFilters()" class="hidden text-xs font-semibold text-blue-600">Reset filter</button>
-        </div>
-        <div id="search-docs-list" class="space-y-3"></div>
-      </div>
-    </section>
-
-    <!-- TAB: PENGINGAT -->
-    <section id="tab-reminders" class="hidden space-y-4 animate-fade-up">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2.5">
-          <span class="text-2xl">🔔</span>
-          <h1 class="text-xl font-extrabold text-slate-900">Pengingat</h1>
-        </div>
-      </div>
-
-      <!-- Segmented Tabs -->
-      <div class="glass-card p-1.5 rounded-2xl grid grid-cols-3 gap-1">
-        <button onclick="setReminderFilter('all')" id="rem-tab-all" class="py-2 rounded-xl text-xs font-bold transition bg-blue-600 text-white shadow">Semua</button>
-        <button onclick="setReminderFilter('expired')" id="rem-tab-expired" class="py-2 rounded-xl text-xs font-bold transition text-slate-600">Kadaluarsa (0)</button>
-        <button onclick="setReminderFilter('upcoming')" id="rem-tab-upcoming" class="py-2 rounded-xl text-xs font-bold transition text-slate-600">Mendatang</button>
-      </div>
-
-      <div id="reminders-list" class="space-y-3"></div>
-
-      <!-- Auto Reminder Toggle -->
-      <div class="glass-card rounded-3xl p-4 flex items-center justify-between gap-3">
-        <div class="flex items-center gap-3">
-          <div class="w-11 h-11 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/25">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"/></svg>
-          </div>
-          <div>
-            <p class="text-sm font-extrabold text-slate-800">Pengingat otomatis</p>
-            <p class="text-xs text-slate-500">Tandai 30 hari sebelum habis</p>
-          </div>
-        </div>
-        <button id="toggle-auto-reminder" class="w-13 h-7 rounded-full bg-emerald-500 p-1 transition flex items-center justify-end">
-          <span class="w-5 h-5 rounded-full bg-white shadow block"></span>
-        </button>
-      </div>
-
-      <!-- Export Calendar Button -->
-      <button onclick="exportAllToCalendar()" class="w-full glass-card rounded-2xl py-3.5 px-4 flex items-center justify-center gap-2 text-sm font-bold text-blue-700 hover:bg-blue-50/70 active:scale-[0.99] transition">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
-        Atur waktu &amp; masukkan ke Kalender (.ics)
-      </button>
-    </section>
-
-    <!-- TAB: PROFIL -->
-    <section id="tab-profile" class="hidden space-y-4 animate-fade-up">
-      <div class="glass-card rounded-3xl p-5">
-        <div class="flex items-center gap-3.5">
-          <img id="user-photo" src="./icon.svg" alt="Foto Profil" class="w-14 h-14 rounded-2xl object-cover border-2 border-white shadow" />
-          <div class="min-w-0 flex-1">
-            <h2 class="text-base font-extrabold text-slate-900 truncate">KELUARGA ME RONA</h2>
-            <p class="text-[11px] text-slate-500">Dokumen dari Keluarga Rouf dan Nanik</p>
-            <p id="user-email" class="text-xs font-semibold text-blue-600 mt-1 truncate"></p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Keamanan & Privasi -->
-      <div class="glass-card rounded-3xl p-4 space-y-3">
-        <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-400 px-1">Keamanan &amp; Privasi</h3>
-
-        <div class="flex items-center justify-between p-2 rounded-2xl hover:bg-slate-50">
-          <div>
-            <p class="text-sm font-bold text-slate-800">Mode Privasi (Blur)</p>
-            <p class="text-xs text-slate-500">Samarkan foto &amp; nomor dokumen di layar</p>
-          </div>
-          <button id="toggle-privacy-profile" class="w-12 h-7 rounded-full bg-slate-200 p-1 transition flex items-center">
-            <span class="w-5 h-5 rounded-full bg-white shadow block"></span>
+        <!-- Sidebar Menu -->
+        <nav class="space-y-1.5">
+          <button onclick="switchTab('home')" id="side-home" class="w-full flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-bold transition bg-blue-600 text-white shadow-md shadow-blue-500/20">
+            <span class="flex items-center gap-3"><span class="text-lg">🏠</span> Beranda</span>
           </button>
-        </div>
+          <button onclick="switchTab('search')" id="side-search" class="w-full flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-bold transition text-slate-600 hover:bg-blue-50/70">
+            <span class="flex items-center gap-3"><span class="text-lg">🔍</span> Semua Dokumen</span>
+            <span id="side-docs-count" class="px-2 py-0.5 rounded-full text-[11px] bg-slate-100 text-slate-600 font-bold">0</span>
+          </button>
+          <button onclick="switchTab('reminders')" id="side-reminders" class="w-full flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-bold transition text-slate-600 hover:bg-blue-50/70">
+            <span class="flex items-center gap-3"><span class="text-lg">🔔</span> Pengingat</span>
+            <span id="side-urgent-badge" class="hidden px-2 py-0.5 rounded-full text-[11px] bg-rose-500 text-white font-bold">0</span>
+          </button>
+          <button onclick="switchTab('profile')" id="side-profile" class="w-full flex items-center justify-between px-4 py-3 rounded-2xl text-sm font-bold transition text-slate-600 hover:bg-blue-50/70">
+            <span class="flex items-center gap-3"><span class="text-lg">👤</span> Profil &amp; Anggota</span>
+          </button>
+        </nav>
+      </div>
 
-        <div class="flex items-center justify-between p-2 rounded-2xl hover:bg-slate-50">
-          <div>
-            <p class="text-sm font-bold text-slate-800">Kunci PIN 6 Digit</p>
-            <p id="pin-status-desc" class="text-xs text-slate-500">Belum aktif di perangkat ini</p>
+      <!-- Sidebar Footer -->
+      <div class="space-y-3 pt-4 border-t border-slate-200/70">
+        <button id="btn-sidebar-privacy" class="w-full px-3.5 py-2.5 rounded-2xl bg-slate-100/90 hover:bg-slate-200/70 text-xs font-bold text-slate-700 flex items-center justify-between transition">
+          <span>👁️ Mode Privasi (Blur)</span>
+          <span id="side-privacy-pill" class="px-2 py-0.5 rounded-full text-[10px] bg-slate-200 text-slate-600">OFF</span>
+        </button>
+
+        <div class="flex items-center gap-2.5 px-2 py-1">
+          <img id="side-user-photo" src="./icon.svg" alt="Profil" class="w-9 h-9 rounded-xl object-cover border border-white shadow-sm shrink-0" />
+          <div class="min-w-0 flex-1">
+            <p class="text-xs font-bold text-slate-800 truncate">Akun Keluarga</p>
+            <p id="side-user-email" class="text-[11px] text-slate-500 truncate"></p>
           </div>
-          <button id="btn-setup-pin" class="px-3.5 py-1.5 rounded-xl bg-blue-50 text-blue-700 text-xs font-bold hover:bg-blue-100">Atur PIN</button>
         </div>
       </div>
+    </aside>
 
-      <!-- Anggota Keluarga -->
-      <div class="glass-card rounded-3xl p-4">
-        <div class="flex items-center justify-between mb-3 px-1">
-          <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-400">Anggota Keluarga</h3>
-          <button onclick="openMemberModal()" class="px-3 py-1 rounded-xl bg-blue-600 text-white text-xs font-bold hover:bg-blue-700">+ Tambah</button>
-        </div>
-        <div id="profile-members-list" class="space-y-2.5"></div>
+    <!-- MAIN CONTENT WRAPPER -->
+    <main class="flex-1 lg:pl-72 w-full">
+      <div class="max-w-md md:max-w-2xl lg:max-w-6xl mx-auto px-4 md:px-6 lg:px-10 pt-5 lg:py-8">
+
+        <!-- TAB: BERANDA -->
+        <section id="tab-home" class="space-y-5 animate-fade-up">
+          <!-- Mobile Header -->
+          <div class="flex items-start justify-between lg:hidden">
+            <div>
+              <h1 class="text-xl font-extrabold text-slate-900 tracking-tight leading-tight">KELUARGA ME RONA</h1>
+              <p class="text-xs text-slate-500 font-medium mt-0.5">Dokumen dari Keluarga Rouf dan Nanik</p>
+            </div>
+            <button id="btn-quick-privacy" title="Mode Privasi" class="p-2.5 rounded-2xl glass-card text-slate-600 hover:text-blue-600 transition">
+              <svg id="icon-eye-open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <svg id="icon-eye-closed" class="w-5 h-5 hidden text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"/></svg>
+            </button>
+          </div>
+
+          <!-- Desktop Header -->
+          <div class="hidden lg:flex items-center justify-between">
+            <div>
+              <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">Beranda Dokumen</h2>
+              <p class="text-sm text-slate-500 mt-0.5">Dokumen dari Keluarga Rouf dan Nanik — tersimpan aman &amp; tersinkron lintas perangkat.</p>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <button onclick="switchTab('search')" class="px-4 py-2.5 rounded-2xl glass-card text-xs font-bold text-slate-700 hover:text-blue-600 transition">🔍 Cari Cepat</button>
+              <button onclick="exportAllToCalendar()" class="px-4 py-2.5 rounded-2xl glass-card text-xs font-bold text-blue-700 hover:bg-blue-50 transition">📅 Ekspor Kalender</button>
+            </div>
+          </div>
+
+          <!-- Top Cards: Hero + Stats (responsive grid) -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+            <!-- Hero Status Card -->
+            <div onclick="switchTab('profile')" class="lg:col-span-6 hero-card rounded-3xl p-5 lg:p-6 text-white relative overflow-hidden cursor-pointer active:scale-[0.99] transition flex items-center">
+              <div class="absolute -right-8 -top-8 w-40 h-40 bg-white/10 rounded-full blur-xl"></div>
+              <div class="flex items-center gap-4 relative z-10 w-full">
+                <div class="w-16 h-16 shrink-0 rounded-2xl bg-white/15 backdrop-blur flex items-center justify-center border border-white/25">
+                  <div class="w-11 h-11 rounded-xl bg-emerald-400 flex items-center justify-center shadow-lg">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/20 text-[11px] font-semibold mb-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span>
+                    <span id="sync-status-text">Tersinkron otomatis</span>
+                  </div>
+                  <h2 class="text-base lg:text-lg font-extrabold leading-snug">Dokumen Anda Aman &amp; Tertata</h2>
+                  <p class="text-xs text-blue-100 mt-0.5">Backup cloud Firebase aktif</p>
+                </div>
+                <svg class="w-5 h-5 text-white/80 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+              </div>
+            </div>
+
+            <!-- Summary Cards Grid -->
+            <div class="lg:col-span-6 grid grid-cols-2 gap-3.5 lg:gap-4">
+              <div onclick="switchTab('reminders')" class="glass-card rounded-3xl p-4 lg:p-5 cursor-pointer active:scale-[0.98] hover:shadow-md transition flex flex-col justify-between">
+                <div class="flex items-center justify-between mb-3">
+                  <div id="home-exp-circle" class="w-11 h-11 rounded-full border-4 border-rose-500/80 flex items-center justify-center text-sm font-extrabold text-rose-600 bg-rose-50">0</div>
+                  <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-600 text-xs font-bold">Cek</span>
+                </div>
+                <div>
+                  <p class="text-sm lg:text-base font-extrabold text-slate-800 leading-tight">Perlu diperpanjang</p>
+                  <p id="home-exp-sub" class="text-[11px] lg:text-xs text-slate-500 mt-1 truncate">Semua dokumen aman</p>
+                </div>
+              </div>
+
+              <div onclick="openCategory('Semua')" class="glass-card rounded-3xl p-4 lg:p-5 cursor-pointer active:scale-[0.98] hover:shadow-md transition flex flex-col justify-between">
+                <div class="mb-3">
+                  <div class="w-11 h-11 rounded-2xl bg-amber-50 flex items-center justify-center text-2xl">📁</div>
+                </div>
+                <div>
+                  <p id="home-total-docs" class="text-2xl lg:text-3xl font-extrabold text-slate-900 leading-none">0</p>
+                  <p id="home-total-sub" class="text-[11px] lg:text-xs text-slate-500 mt-1.5">Total dokumen • 0 anggota</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kategori Section -->
+          <div class="pt-1">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-base lg:text-lg font-extrabold text-slate-900">Kategori</h3>
+              <button onclick="openCategory('Semua')" class="text-xs lg:text-sm font-bold text-blue-600 hover:text-blue-700">Semua dokumen &rsaquo;</button>
+            </div>
+            <div id="home-categories-grid" class="grid grid-cols-3 md:grid-cols-6 gap-3 lg:gap-4"></div>
+          </div>
+
+          <!-- Dokumen Terbaru (terutama memperkaya tampilan PC & tablet) -->
+          <div class="pt-1">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-base lg:text-lg font-extrabold text-slate-900">Dokumen Terbaru</h3>
+              <button onclick="openCategory('Semua')" class="text-xs lg:text-sm font-bold text-blue-600 hover:text-blue-700">Lihat semua &rsaquo;</button>
+            </div>
+            <div id="home-recent-docs" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3.5"></div>
+          </div>
+        </section>
+
+        <!-- TAB: CARI / SEMUA DOKUMEN -->
+        <section id="tab-search" class="hidden space-y-5 animate-fade-up">
+          <div class="hidden lg:flex items-center justify-between">
+            <div>
+              <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">Semua Dokumen</h2>
+              <p class="text-sm text-slate-500 mt-0.5">Cari cepat berdasarkan nama, pemilik, kategori, atau nomor dokumen.</p>
+            </div>
+            <button onclick="openDocModal()" class="px-4 py-2.5 rounded-2xl hero-card text-white text-xs font-bold">+ Tambah Dokumen</button>
+          </div>
+
+          <div class="relative max-w-2xl">
+            <svg class="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
+            <input id="search-input" type="text" placeholder="Cari KTP, SIM, STNK, nama, nomor..." class="w-full pl-11 pr-4 py-3.5 rounded-2xl glass-card text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div>
+              <p class="text-xs font-bold text-slate-500 mb-2">Kategori</p>
+              <div id="search-cat-pills" class="flex gap-2 overflow-x-auto lg:flex-wrap no-scrollbar pb-1"></div>
+            </div>
+
+            <div>
+              <p class="text-xs font-bold text-slate-500 mb-2">Anggota keluarga</p>
+              <div id="search-member-pills" class="flex gap-2 overflow-x-auto lg:flex-wrap no-scrollbar pb-1"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <p id="search-count-label" class="text-xs lg:text-sm font-bold text-slate-600">Semua dokumen (0)</p>
+              <button id="btn-reset-filter" onclick="resetFilters()" class="hidden text-xs font-semibold text-blue-600 hover:underline">Reset filter</button>
+            </div>
+            <div id="search-docs-list" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3.5"></div>
+          </div>
+        </section>
+
+        <!-- TAB: PENGINGAT -->
+        <section id="tab-reminders" class="hidden space-y-5 animate-fade-up">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <span class="text-2xl">🔔</span>
+              <div>
+                <h1 class="text-xl lg:text-2xl font-extrabold text-slate-900">Pengingat Masa Berlaku</h1>
+                <p class="hidden lg:block text-sm text-slate-500">Pantau SIM, STNK, paspor, atau dokumen lain sebelum jatuh tempo.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+            <div class="lg:col-span-8 space-y-4">
+              <!-- Segmented Tabs -->
+              <div class="glass-card p-1.5 rounded-2xl grid grid-cols-3 gap-1">
+                <button onclick="setReminderFilter('all')" id="rem-tab-all" class="py-2.5 rounded-xl text-xs font-bold transition bg-blue-600 text-white shadow">Semua</button>
+                <button onclick="setReminderFilter('expired')" id="rem-tab-expired" class="py-2.5 rounded-xl text-xs font-bold transition text-slate-600">Kadaluarsa (0)</button>
+                <button onclick="setReminderFilter('upcoming')" id="rem-tab-upcoming" class="py-2.5 rounded-xl text-xs font-bold transition text-slate-600">Mendatang</button>
+              </div>
+
+              <div id="reminders-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3.5"></div>
+            </div>
+
+            <div class="lg:col-span-4 space-y-3.5">
+              <!-- Auto Reminder Toggle -->
+              <div class="glass-card rounded-3xl p-4 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-11 h-11 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shadow-md shadow-emerald-500/25 shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"/></svg>
+                  </div>
+                  <div>
+                    <p class="text-sm font-extrabold text-slate-800">Pengingat otomatis</p>
+                    <p class="text-xs text-slate-500">Tandai 30 hari sebelum habis</p>
+                  </div>
+                </div>
+                <button id="toggle-auto-reminder" class="w-12 h-7 rounded-full bg-emerald-500 p-1 transition flex items-center justify-end shrink-0">
+                  <span class="w-5 h-5 rounded-full bg-white shadow block"></span>
+                </button>
+              </div>
+
+              <!-- Export Calendar Button -->
+              <button onclick="exportAllToCalendar()" class="w-full glass-card rounded-2xl py-4 px-4 flex items-center justify-center gap-2 text-sm font-bold text-blue-700 hover:bg-blue-50/70 active:scale-[0.99] transition">
+                <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+                Masukkan ke Kalender (.ics)
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB: PROFIL -->
+        <section id="tab-profile" class="hidden space-y-5 animate-fade-up">
+          <div class="hidden lg:block">
+            <h2 class="text-2xl font-extrabold text-slate-900 tracking-tight">Profil &amp; Anggota Keluarga</h2>
+            <p class="text-sm text-slate-500 mt-0.5">Kelola privasi, kunci PIN perangkat, dan daftar anggota keluarga.</p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+            <div class="lg:col-span-5 space-y-4">
+              <div class="glass-card rounded-3xl p-5">
+                <div class="flex items-center gap-3.5">
+                  <img id="user-photo" src="./icon.svg" alt="Foto Profil" class="w-14 h-14 rounded-2xl object-cover border-2 border-white shadow" />
+                  <div class="min-w-0 flex-1">
+                    <h2 class="text-base font-extrabold text-slate-900 truncate">KELUARGA ME RONA</h2>
+                    <p class="text-[11px] text-slate-500">Dokumen dari Keluarga Rouf dan Nanik</p>
+                    <p id="user-email" class="text-xs font-semibold text-blue-600 mt-1 truncate"></p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Keamanan & Privasi -->
+              <div class="glass-card rounded-3xl p-4 space-y-3">
+                <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-400 px-1">Keamanan &amp; Privasi</h3>
+
+                <div class="flex items-center justify-between p-2 rounded-2xl hover:bg-slate-50">
+                  <div>
+                    <p class="text-sm font-bold text-slate-800">Mode Privasi (Blur)</p>
+                    <p class="text-xs text-slate-500">Samarkan foto &amp; nomor dokumen di layar</p>
+                  </div>
+                  <button id="toggle-privacy-profile" class="w-12 h-7 rounded-full bg-slate-200 p-1 transition flex items-center shrink-0">
+                    <span class="w-5 h-5 rounded-full bg-white shadow block"></span>
+                  </button>
+                </div>
+
+                <div class="flex items-center justify-between p-2 rounded-2xl hover:bg-slate-50">
+                  <div>
+                    <p class="text-sm font-bold text-slate-800">Kunci PIN 6 Digit</p>
+                    <p id="pin-status-desc" class="text-xs text-slate-500">Belum aktif di perangkat ini</p>
+                  </div>
+                  <button id="btn-setup-pin" class="px-3.5 py-1.5 rounded-xl bg-blue-50 text-blue-700 text-xs font-bold hover:bg-blue-100 shrink-0">Atur PIN</button>
+                </div>
+              </div>
+
+              <!-- Logout -->
+              <button id="btn-logout" class="w-full py-3.5 rounded-2xl bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-sm transition">
+                Keluar dari Akun Google
+              </button>
+            </div>
+
+            <!-- Anggota Keluarga -->
+            <div class="lg:col-span-7 glass-card rounded-3xl p-5">
+              <div class="flex items-center justify-between mb-4 px-1">
+                <div>
+                  <h3 class="text-xs font-extrabold uppercase tracking-wider text-slate-400">Anggota Keluarga</h3>
+                  <p class="text-xs text-slate-500 mt-0.5">Tambahkan, ubah, atau hapus profil pemilik dokumen.</p>
+                </div>
+                <button onclick="openMemberModal()" class="px-3.5 py-2 rounded-xl bg-blue-600 text-white text-xs font-bold hover:bg-blue-700 transition">+ Tambah</button>
+              </div>
+              <div id="profile-members-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+            </div>
+          </div>
+        </section>
+
       </div>
-
-      <!-- Logout -->
-      <button id="btn-logout" class="w-full py-3.5 rounded-2xl bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-sm transition">
-        Keluar dari Akun Google
-      </button>
-    </section>
+    </main>
 
   </div>
 
-  <!-- BOTTOM NAVIGATION -->
-  <nav id="bottom-nav" class="hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-md z-30">
+  <!-- MOBILE BOTTOM NAVIGATION (hanya tampil di HP / Tablet < lg) -->
+  <nav id="bottom-nav" class="hidden lg:hidden fixed bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-md z-30">
     <div class="bottom-nav rounded-3xl px-3 py-2 flex items-center justify-around relative">
       <button onclick="switchTab('home')" id="nav-home" class="nav-item flex flex-col items-center gap-0.5 px-3 py-1 rounded-2xl text-blue-600">
         <span class="text-xl leading-none">🏠</span>
@@ -342,7 +474,7 @@
       </button>
 
       <!-- Center FAB -->
-      <button onclick="openDocModal()" class="fab-btn -mt-9 w-15 h-15 p-3.5 rounded-2xl text-white flex items-center justify-center active:scale-95 transition border-4 border-white">
+      <button onclick="openDocModal()" class="fab-btn -mt-9 p-3.5 rounded-2xl text-white flex items-center justify-center active:scale-95 transition border-4 border-white">
         <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
       </button>
 
@@ -359,10 +491,10 @@
 
   <!-- MODAL: TAMBAH / EDIT DOKUMEN -->
   <div id="doc-modal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 max-h-[92vh] overflow-y-auto animate-fade-up">
+    <div class="bg-white w-full max-w-md sm:max-w-lg rounded-t-3xl sm:rounded-3xl p-5 sm:p-6 max-h-[92vh] overflow-y-auto animate-fade-up shadow-2xl">
       <div class="flex items-center justify-between mb-4">
         <h3 id="doc-modal-title" class="text-lg font-extrabold text-slate-900">Tambah Dokumen</h3>
-        <button onclick="closeDocModal()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold">&times;</button>
+        <button onclick="closeDocModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center font-bold">&times;</button>
       </div>
 
       <form id="doc-form" class="space-y-3.5">
@@ -373,10 +505,10 @@
           <label class="block text-xs font-bold text-slate-600 mb-1.5">Foto Dokumen (otomatis dikompres)</label>
           <label class="block border-2 border-dashed border-blue-200 hover:border-blue-400 rounded-2xl p-3 text-center cursor-pointer bg-blue-50/40 transition">
             <input type="file" id="doc-photo-input" accept="image/*" class="hidden" />
-            <img id="doc-photo-preview" class="hidden w-full max-h-44 object-contain rounded-xl mx-auto mb-2" />
+            <img id="doc-photo-preview" class="hidden w-full max-h-48 object-contain rounded-xl mx-auto mb-2" />
             <div id="doc-photo-placeholder" class="py-4 text-slate-500 text-xs">
               <span class="text-2xl block mb-1">📷</span>
-              Ketuk untuk ambil foto atau pilih dari galeri
+              Ketuk untuk ambil foto atau pilih file dari perangkat
             </div>
           </label>
         </div>
@@ -432,60 +564,64 @@
     </div>
   </div>
 
-  <!-- MODAL: DETAIL DOKUMEN -->
+  <!-- MODAL: DETAIL DOKUMEN (lebar & 2 kolom di PC) -->
   <div id="detail-modal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
-    <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-3xl p-5 max-h-[92vh] overflow-y-auto animate-fade-up">
-      <div class="flex items-center justify-between mb-3">
+    <div class="bg-white w-full max-w-md md:max-w-2xl rounded-t-3xl sm:rounded-3xl p-5 sm:p-6 max-h-[92vh] overflow-y-auto animate-fade-up shadow-2xl">
+      <div class="flex items-center justify-between mb-4">
         <div>
-          <h3 id="detail-title" class="text-lg font-extrabold text-slate-900"></h3>
+          <h3 id="detail-title" class="text-lg sm:text-xl font-extrabold text-slate-900"></h3>
           <p id="detail-meta" class="text-xs text-slate-500"></p>
         </div>
-        <button onclick="closeDetailModal()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold">&times;</button>
+        <button onclick="closeDetailModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center font-bold">&times;</button>
       </div>
 
-      <div id="detail-photo-box" class="mb-4 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 relative">
-        <img id="detail-photo" class="w-full max-h-64 object-contain mx-auto" />
-      </div>
-
-      <div id="detail-number-box" class="mb-3 p-3.5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-center justify-between gap-2">
-        <div class="min-w-0">
-          <p class="text-[11px] font-bold text-blue-700">Nomor Dokumen</p>
-          <p id="detail-number" class="text-sm font-extrabold text-slate-900 truncate"></p>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-start">
+        <div id="detail-photo-box" class="md:col-span-7 rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 relative">
+          <img id="detail-photo" class="w-full max-h-72 md:max-h-96 object-contain mx-auto" />
         </div>
-        <button onclick="copyDetailNumber()" class="shrink-0 px-3 py-1.5 rounded-xl bg-blue-600 text-white text-xs font-bold active:scale-95">Salin</button>
-      </div>
 
-      <div class="grid grid-cols-2 gap-2.5 mb-3">
-        <div class="p-3 rounded-2xl bg-slate-50">
-          <p class="text-[11px] text-slate-500">Masa Berlaku</p>
-          <p id="detail-expiry" class="text-xs font-bold text-slate-800 mt-0.5"></p>
+        <div id="detail-info-col" class="md:col-span-5 space-y-3">
+          <div id="detail-number-box" class="p-3.5 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-center justify-between gap-2">
+            <div class="min-w-0">
+              <p class="text-[11px] font-bold text-blue-700">Nomor Dokumen</p>
+              <p id="detail-number" class="text-sm font-extrabold text-slate-900 truncate"></p>
+            </div>
+            <button onclick="copyDetailNumber()" class="shrink-0 px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold active:scale-95">Salin</button>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2.5">
+            <div class="p-3 rounded-2xl bg-slate-50">
+              <p class="text-[11px] text-slate-500">Masa Berlaku</p>
+              <p id="detail-expiry" class="text-xs font-bold text-slate-800 mt-0.5"></p>
+            </div>
+            <div class="p-3 rounded-2xl bg-slate-50">
+              <p class="text-[11px] text-slate-500">Kategori</p>
+              <p id="detail-category" class="text-xs font-bold text-slate-800 mt-0.5"></p>
+            </div>
+          </div>
+
+          <div id="detail-notes-box" class="hidden p-3 rounded-2xl bg-amber-50/70 border border-amber-100 text-xs text-slate-700"></div>
+
+          <!-- Watermark Download -->
+          <button id="btn-watermark-download" onclick="downloadWithWatermark()" class="w-full py-3 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition">
+            🛡️ Unduh Foto + Watermark Aman
+          </button>
+
+          <div class="grid grid-cols-2 gap-2.5 pt-1">
+            <button onclick="editCurrentDetail()" class="py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs transition">✏️ Edit</button>
+            <button onclick="deleteCurrentDetail()" class="py-3 rounded-2xl bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs transition">🗑️ Hapus</button>
+          </div>
         </div>
-        <div class="p-3 rounded-2xl bg-slate-50">
-          <p class="text-[11px] text-slate-500">Kategori</p>
-          <p id="detail-category" class="text-xs font-bold text-slate-800 mt-0.5"></p>
-        </div>
-      </div>
-
-      <div id="detail-notes-box" class="hidden mb-4 p-3 rounded-2xl bg-amber-50/70 border border-amber-100 text-xs text-slate-700"></div>
-
-      <!-- Watermark Download -->
-      <button id="btn-watermark-download" onclick="downloadWithWatermark()" class="w-full mb-3 py-3 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 transition">
-        🛡️ Unduh Foto + Watermark Aman (Untuk Kirim WA)
-      </button>
-
-      <div class="grid grid-cols-2 gap-2.5">
-        <button onclick="editCurrentDetail()" class="py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs">✏️ Edit</button>
-        <button onclick="deleteCurrentDetail()" class="py-3 rounded-2xl bg-rose-50 hover:bg-rose-100 text-rose-600 font-bold text-xs">🗑️ Hapus</button>
       </div>
     </div>
   </div>
 
   <!-- MODAL: TAMBAH / EDIT ANGGOTA -->
   <div id="member-modal" class="hidden fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white w-full max-w-sm rounded-3xl p-5 animate-fade-up">
+    <div class="bg-white w-full max-w-sm rounded-3xl p-5 animate-fade-up shadow-2xl">
       <div class="flex items-center justify-between mb-4">
         <h3 id="member-modal-title" class="text-base font-extrabold text-slate-900">Tambah Anggota</h3>
-        <button onclick="closeMemberModal()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold">&times;</button>
+        <button onclick="closeMemberModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center font-bold">&times;</button>
       </div>
       <form id="member-form" class="space-y-3.5">
         <input type="hidden" id="member-id" />
@@ -555,7 +691,6 @@
       }
     });
 
-    // Shared family collection paths
     const docsCol = collection(db, "keluarga_me_rona", "vault", "documents");
     const membersCol = collection(db, "keluarga_me_rona", "vault", "members");
     const settingsDoc = doc(db, "keluarga_me_rona", "vault", "meta", "settings");
@@ -589,14 +724,12 @@
       seededMembers: false
     };
 
-    // PWA Service Worker registration
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker.register("./sw.js").catch(() => {});
       });
     }
 
-    // Toast helper
     function showToast(msg) {
       const el = document.getElementById("toast");
       el.textContent = msg;
@@ -606,7 +739,6 @@
     }
     window.showToast = showToast;
 
-    // Date helpers
     function daysUntil(dateStr) {
       if (!dateStr) return null;
       const now = new Date();
@@ -628,18 +760,10 @@
         return { text: "Berlaku seumur hidup", cls: "bg-emerald-50 text-emerald-700", dot: "bg-emerald-500", urgent: false };
       }
       const diff = daysUntil(docItem.expiryDate);
-      if (diff < 0) {
-        return { text: `Habis ${Math.abs(diff)} hari lalu`, cls: "bg-rose-100 text-rose-700", dot: "bg-rose-500", urgent: true };
-      }
-      if (diff === 0) {
-        return { text: "Habis hari ini!", cls: "bg-rose-100 text-rose-700", dot: "bg-rose-500", urgent: true };
-      }
-      if (diff <= 30) {
-        return { text: `Habis ${diff} hari lagi`, cls: "bg-rose-50 text-rose-600", dot: "bg-rose-500", urgent: true };
-      }
-      if (diff <= 180) {
-        return { text: `Berlaku s.d. ${formatIndoDate(docItem.expiryDate)}`, cls: "bg-blue-50 text-blue-700", dot: "bg-blue-500", urgent: false };
-      }
+      if (diff < 0) return { text: `Habis ${Math.abs(diff)} hari lalu`, cls: "bg-rose-100 text-rose-700", dot: "bg-rose-500", urgent: true };
+      if (diff === 0) return { text: "Habis hari ini!", cls: "bg-rose-100 text-rose-700", dot: "bg-rose-500", urgent: true };
+      if (diff <= 30) return { text: `Habis ${diff} hari lagi`, cls: "bg-rose-50 text-rose-600", dot: "bg-rose-500", urgent: true };
+      if (diff <= 180) return { text: `Berlaku s.d. ${formatIndoDate(docItem.expiryDate)}`, cls: "bg-blue-50 text-blue-700", dot: "bg-blue-500", urgent: false };
       return { text: `Berlaku s.d. ${formatIndoDate(docItem.expiryDate)}`, cls: "bg-emerald-50 text-emerald-700", dot: "bg-emerald-500", urgent: false };
     }
 
@@ -650,7 +774,7 @@
       return { num: Math.max(1, Math.round(diff / 365)), unit: "tahun", ring: "border-emerald-500 text-emerald-600 bg-emerald-50" };
     }
 
-    // Auth Handling (Popup dengan fallback otomatis ke Redirect di iOS/PWA)
+    // Auth Handling
     document.getElementById("btn-google-login").addEventListener("click", async () => {
       const errBox = document.getElementById("login-error");
       errBox.classList.add("hidden");
@@ -671,7 +795,7 @@
 
         errBox.classList.remove("hidden");
         if (err.code === "auth/unauthorized-domain") {
-          errBox.innerHTML = `<strong>Domain belum diizinkan di Firebase.</strong><br/>Buka Firebase Console &rarr; Authentication &rarr; Settings &rarr; Authorized domains, lalu tambahkan domain <code>${window.location.hostname}</code>.`;
+          errBox.innerHTML = `<strong>Domain belum diizinkan di Firebase.</strong><br/>Tambahkan domain <code>${window.location.hostname}</code> di Firebase Console &rarr; Authentication &rarr; Settings &rarr; Authorized domains.`;
         } else {
           errBox.textContent = "Gagal masuk: " + (err.message || err.code);
         }
@@ -708,7 +832,11 @@
       document.getElementById("app-shell").classList.remove("hidden");
       document.getElementById("bottom-nav").classList.remove("hidden");
       document.getElementById("user-email").textContent = user.email;
-      if (user.photoURL) document.getElementById("user-photo").src = user.photoURL;
+      document.getElementById("side-user-email").textContent = user.email;
+      if (user.photoURL) {
+        document.getElementById("user-photo").src = user.photoURL;
+        document.getElementById("side-user-photo").src = user.photoURL;
+      }
 
       startRealtimeSync();
       checkPinOnOpen();
@@ -789,7 +917,7 @@
       pinInput = "";
       document.getElementById("pin-error").textContent = "";
       document.getElementById("pin-title").textContent = mode === "set" ? "Buat PIN 6 Digit" : "Masukkan PIN 6 Digit";
-      document.getElementById("pin-subtitle").textContent = mode === "set" ? "PIN disimpan di HP ini untuk keamanan tambahan" : "Buka kunci brankas KELUARGA ME RONA";
+      document.getElementById("pin-subtitle").textContent = mode === "set" ? "PIN disimpan di perangkat ini untuk keamanan tambahan" : "Buka kunci brankas KELUARGA ME RONA";
       document.getElementById("pin-cancel").classList.toggle("invisible", mode === "unlock");
       renderPinDots();
       document.getElementById("pin-overlay").classList.remove("hidden");
@@ -853,11 +981,13 @@
       }
     });
 
-    // Navigation
+    // Navigation (sinkron Mobile Bottom Nav + Desktop Sidebar)
     window.switchTab = function(tab) {
       state.activeTab = tab;
       ["home", "search", "reminders", "profile"].forEach((t) => {
         document.getElementById(`tab-${t}`).classList.toggle("hidden", t !== tab);
+
+        // Mobile bottom nav
         const nav = document.getElementById(`nav-${t}`);
         if (t === tab) {
           nav.classList.add("text-blue-600");
@@ -865,6 +995,16 @@
         } else {
           nav.classList.remove("text-blue-600");
           nav.classList.add("text-slate-400");
+        }
+
+        // Desktop sidebar nav
+        const side = document.getElementById(`side-${t}`);
+        if (t === tab) {
+          side.classList.add("bg-blue-600", "text-white", "shadow-md", "shadow-blue-500/20");
+          side.classList.remove("text-slate-600", "hover:bg-blue-50/70");
+        } else {
+          side.classList.remove("bg-blue-600", "text-white", "shadow-md", "shadow-blue-500/20");
+          side.classList.add("text-slate-600", "hover:bg-blue-50/70");
         }
       });
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -893,6 +1033,7 @@
       showToast(next ? "Mode Privasi aktif (foto disamarkan)" : "Mode Privasi dimatikan");
     }
     document.getElementById("btn-quick-privacy").addEventListener("click", togglePrivacy);
+    document.getElementById("btn-sidebar-privacy").addEventListener("click", togglePrivacy);
     document.getElementById("toggle-privacy-profile").addEventListener("click", togglePrivacy);
 
     document.getElementById("toggle-auto-reminder").addEventListener("click", async () => {
@@ -903,7 +1044,29 @@
       showToast(next ? "Pengingat otomatis aktif" : "Pengingat otomatis dimatikan");
     });
 
-    // Render Functions
+    // Document card template (dipakai di Beranda & Cari)
+    function docCardHtml(d) {
+      const badge = getExpiryBadge(d);
+      const blurCls = state.settings.privacyMode ? "privacy-blur" : "";
+      const thumb = d.photo
+        ? `<img src="${d.photo}" class="w-16 h-16 rounded-2xl object-cover border border-slate-200 shrink-0 ${blurCls}" />`
+        : `<div class="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center text-2xl shrink-0">📄</div>`;
+      return `
+        <div onclick="openDetail('${d.id}')" class="glass-card rounded-3xl p-3.5 flex items-center gap-3.5 cursor-pointer hover:shadow-md hover:-translate-y-0.5 active:scale-[0.99] transition">
+          ${thumb}
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-extrabold text-slate-900 truncate">${escapeHtml(d.title)}</p>
+            <p class="text-xs text-slate-500 truncate mt-0.5">${escapeHtml(d.owner || "-")} • ${escapeHtml(d.category)}</p>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold mt-2 ${badge.cls}">
+              <span class="w-1.5 h-1.5 rounded-full ${badge.dot}"></span>
+              ${badge.text}
+            </div>
+          </div>
+          <svg class="w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+        </div>
+      `;
+    }
+
     function renderAll() {
       renderPrivacyUI();
       renderHome();
@@ -916,6 +1079,13 @@
       const p = state.settings.privacyMode;
       document.getElementById("icon-eye-open").classList.toggle("hidden", p);
       document.getElementById("icon-eye-closed").classList.toggle("hidden", !p);
+
+      const pill = document.getElementById("side-privacy-pill");
+      pill.textContent = p ? "ON" : "OFF";
+      pill.classList.toggle("bg-blue-600", p);
+      pill.classList.toggle("text-white", p);
+      pill.classList.toggle("bg-slate-200", !p);
+      pill.classList.toggle("text-slate-600", !p);
 
       const tPriv = document.getElementById("toggle-privacy-profile");
       tPriv.classList.toggle("bg-blue-600", p);
@@ -948,17 +1118,37 @@
       document.getElementById("home-total-docs").textContent = state.docs.length;
       document.getElementById("home-total-sub").textContent = `Total dokumen • ${state.members.length} anggota`;
 
+      // Update sidebar badges
+      document.getElementById("side-docs-count").textContent = state.docs.length;
+      const urgentBadge = document.getElementById("side-urgent-badge");
+      urgentBadge.textContent = urgentDocs.length;
+      urgentBadge.classList.toggle("hidden", urgentDocs.length === 0);
+
       const grid = document.getElementById("home-categories-grid");
       grid.innerHTML = CATEGORIES.map((c) => {
         const count = state.docs.filter((d) => d.category === c.id).length;
         return `
-          <button onclick="openCategory('${c.id}')" class="glass-card rounded-3xl p-3.5 text-center active:scale-95 transition">
+          <button onclick="openCategory('${c.id}')" class="glass-card rounded-3xl p-3.5 lg:p-4 text-center hover:shadow-md hover:-translate-y-0.5 active:scale-95 transition">
             <div class="w-11 h-11 mx-auto rounded-2xl ${c.bg} flex items-center justify-center text-2xl mb-2">${c.icon}</div>
-            <p class="text-xs font-extrabold text-slate-800">${c.id}</p>
+            <p class="text-xs lg:text-sm font-extrabold text-slate-800">${c.id}</p>
             <p class="text-[11px] text-slate-500 mt-0.5">${count} dokumen</p>
           </button>
         `;
       }).join("");
+
+      const recentWrap = document.getElementById("home-recent-docs");
+      const recent = state.docs.slice(0, 6);
+      if (recent.length === 0) {
+        recentWrap.innerHTML = `
+          <div class="col-span-full glass-card rounded-3xl p-8 text-center">
+            <p class="text-3xl mb-2">📂</p>
+            <p class="text-sm font-bold text-slate-700">Belum ada dokumen tersimpan</p>
+            <p class="text-xs text-slate-500 mt-1">Klik tombol <strong>+ Tambah Dokumen</strong> untuk mulai menyimpan KTP, KK, SIM, atau STNK.</p>
+          </div>
+        `;
+      } else {
+        recentWrap.innerHTML = recent.map(docCardHtml).join("");
+      }
     }
 
     document.getElementById("search-input").addEventListener("input", (e) => {
@@ -971,14 +1161,14 @@
       const allCats = [{ id: "Semua", icon: "✨" }, ...CATEGORIES];
       catPills.innerHTML = allCats.map((c) => {
         const active = state.filterCategory === c.id;
-        return `<button onclick="setFilterCat('${c.id}')" class="shrink-0 px-3.5 py-2 rounded-2xl text-xs font-bold transition ${active ? "bg-blue-600 text-white shadow-md shadow-blue-500/25" : "glass-card text-slate-700"}">${c.icon} ${c.id}</button>`;
+        return `<button onclick="setFilterCat('${c.id}')" class="shrink-0 px-3.5 py-2 rounded-2xl text-xs font-bold transition ${active ? "bg-blue-600 text-white shadow-md shadow-blue-500/25" : "glass-card text-slate-700 hover:bg-blue-50/70"}">${c.icon} ${c.id}</button>`;
       }).join("");
 
       const memPills = document.getElementById("search-member-pills");
       const allMems = [{ name: "Semua", avatar: "👥" }, ...state.members];
       memPills.innerHTML = allMems.map((m) => {
         const active = state.filterMember === m.name;
-        return `<button onclick="setFilterMember('${m.name.replace(/'/g, "\\'")}')" class="shrink-0 px-3.5 py-2 rounded-2xl text-xs font-bold transition ${active ? "bg-blue-600 text-white shadow-md shadow-blue-500/25" : "glass-card text-slate-700"}">${m.avatar || "👤"} ${m.name}</button>`;
+        return `<button onclick="setFilterMember('${m.name.replace(/'/g, "\\'")}')" class="shrink-0 px-3.5 py-2 rounded-2xl text-xs font-bold transition ${active ? "bg-blue-600 text-white shadow-md shadow-blue-500/25" : "glass-card text-slate-700 hover:bg-blue-50/70"}">${m.avatar || "👤"} ${m.name}</button>`;
       }).join("");
 
       const filtered = state.docs.filter((d) => {
@@ -998,45 +1188,21 @@
       const list = document.getElementById("search-docs-list");
       if (filtered.length === 0) {
         list.innerHTML = `
-          <div class="glass-card rounded-3xl p-8 text-center">
+          <div class="col-span-full glass-card rounded-3xl p-8 text-center">
             <p class="text-3xl mb-2">📂</p>
-            <p class="text-sm font-bold text-slate-700">Belum ada dokumen</p>
-            <p class="text-xs text-slate-500 mt-1">Ketuk tombol <strong>+</strong> di bawah untuk menambahkan KTP, KK, SIM, atau STNK.</p>
+            <p class="text-sm font-bold text-slate-700">Tidak ada dokumen ditemukan</p>
+            <p class="text-xs text-slate-500 mt-1">Coba ubah kata kunci atau tambahkan dokumen baru.</p>
           </div>
         `;
         return;
       }
 
-      const blurCls = state.settings.privacyMode ? "privacy-blur" : "";
-      list.innerHTML = filtered.map((d) => {
-        const badge = getExpiryBadge(d);
-        const thumb = d.photo
-          ? `<img src="${d.photo}" class="w-16 h-16 rounded-2xl object-cover border border-slate-200 shrink-0 ${blurCls}" />`
-          : `<div class="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center text-2xl shrink-0">📄</div>`;
-        return `
-          <div onclick="openDetail('${d.id}')" class="glass-card rounded-3xl p-3.5 flex items-center gap-3.5 cursor-pointer active:scale-[0.99] transition">
-            ${thumb}
-            <div class="flex-1 min-w-0">
-              <p class="text-sm font-extrabold text-slate-900 truncate">${escapeHtml(d.title)}</p>
-              <p class="text-xs text-slate-500 truncate mt-0.5">${escapeHtml(d.owner || "-")} • ${escapeHtml(d.category)}</p>
-              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold mt-2 ${badge.cls}">
-                <span class="w-1.5 h-1.5 rounded-full ${badge.dot}"></span>
-                ${badge.text}
-              </div>
-            </div>
-            <svg class="w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
-          </div>
-        `;
-      }).join("");
+      list.innerHTML = filtered.map(docCardHtml).join("");
     }
 
     window.setFilterCat = function(c) { state.filterCategory = c; renderSearch(); };
     window.setFilterMember = function(m) { state.filterMember = m; renderSearch(); };
-
-    window.setReminderFilter = function(f) {
-      state.reminderFilter = f;
-      renderReminders();
-    };
+    window.setReminderFilter = function(f) { state.reminderFilter = f; renderReminders(); };
 
     function renderReminders() {
       const withExpiry = state.docs
@@ -1066,7 +1232,7 @@
       const list = document.getElementById("reminders-list");
       if (items.length === 0) {
         list.innerHTML = `
-          <div class="glass-card rounded-3xl p-7 text-center">
+          <div class="col-span-full glass-card rounded-3xl p-7 text-center">
             <p class="text-2xl mb-1">✅</p>
             <p class="text-sm font-bold text-slate-700">Tidak ada pengingat di daftar ini</p>
           </div>
@@ -1082,7 +1248,7 @@
           ? `<img src="${d.photo}" class="w-14 h-14 rounded-2xl object-cover border border-slate-200 shrink-0 ${blurCls}" />`
           : `<div class="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center text-xl shrink-0">📄</div>`;
         return `
-          <div onclick="openDetail('${d.id}')" class="glass-card rounded-3xl p-3.5 flex items-center gap-3 cursor-pointer active:scale-[0.99] transition">
+          <div onclick="openDetail('${d.id}')" class="glass-card rounded-3xl p-3.5 flex items-center gap-3 cursor-pointer hover:shadow-md active:scale-[0.99] transition">
             ${thumb}
             <div class="flex-1 min-w-0">
               <p class="text-sm font-extrabold text-slate-900 truncate">${escapeHtml(d.title)}</p>
@@ -1101,21 +1267,21 @@
     function renderProfile() {
       const list = document.getElementById("profile-members-list");
       if (state.members.length === 0) {
-        list.innerHTML = `<p class="text-xs text-slate-500 text-center py-3">Belum ada anggota keluarga.</p>`;
+        list.innerHTML = `<p class="col-span-full text-xs text-slate-500 text-center py-4">Belum ada anggota keluarga.</p>`;
         return;
       }
       list.innerHTML = state.members.map((m) => {
         const count = state.docs.filter((d) => d.owner === m.name).length;
         return `
-          <div class="flex items-center justify-between p-2.5 rounded-2xl bg-slate-50/90 border border-slate-100">
+          <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50/90 border border-slate-100">
             <div class="flex items-center gap-3 min-w-0">
-              <div class="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center text-xl">${m.avatar || "👤"}</div>
+              <div class="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center text-xl shrink-0">${m.avatar || "👤"}</div>
               <div class="min-w-0">
                 <p class="text-sm font-bold text-slate-800 truncate">${escapeHtml(m.name)}</p>
                 <p class="text-[11px] text-slate-500">${count} dokumen</p>
               </div>
             </div>
-            <div class="flex items-center gap-1.5">
+            <div class="flex items-center gap-1.5 shrink-0">
               <button onclick="openMemberModal('${m.id}')" class="p-2 rounded-xl bg-white text-blue-600 hover:bg-blue-50 border border-slate-200 text-xs font-bold" title="Edit">✏️</button>
               <button onclick="deleteMember('${m.id}', '${m.name.replace(/'/g, "\\'")}')" class="p-2 rounded-xl bg-white text-rose-600 hover:bg-rose-50 border border-slate-200 text-xs font-bold" title="Hapus">🗑️</button>
             </div>
@@ -1254,15 +1420,20 @@
       document.getElementById("detail-expiry").textContent = d.lifetime || !d.expiryDate ? "Seumur hidup" : formatIndoDate(d.expiryDate);
 
       const photoBox = document.getElementById("detail-photo-box");
+      const infoCol = document.getElementById("detail-info-col");
       const photoEl = document.getElementById("detail-photo");
       const wmBtn = document.getElementById("btn-watermark-download");
       if (d.photo) {
         photoEl.src = d.photo;
         photoEl.classList.toggle("privacy-blur", state.settings.privacyMode);
         photoBox.classList.remove("hidden");
+        infoCol.classList.remove("md:col-span-12");
+        infoCol.classList.add("md:col-span-5");
         wmBtn.classList.remove("hidden");
       } else {
         photoBox.classList.add("hidden");
+        infoCol.classList.remove("md:col-span-5");
+        infoCol.classList.add("md:col-span-12");
         wmBtn.classList.add("hidden");
       }
 
