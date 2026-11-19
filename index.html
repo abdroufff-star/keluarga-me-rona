@@ -508,13 +508,26 @@
   <!-- FIREBASE + APP LOGIC -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-    import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+    import {
+      getAuth,
+      GoogleAuthProvider,
+      signInWithPopup,
+      signInWithRedirect,
+      getRedirectResult,
+      onAuthStateChanged,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
     import { getFirestore, collection, doc, addDoc, updateDoc, deleteDoc, setDoc, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
-    // Konfigurasi Firebase proyek: keluarga-me-rona
+    // Gunakan domain Vercel sendiri (same-origin) saat online agar tidak diblokir Safari iPhone
+    const isLocalHost = ["localhost", "127.0.0.1", ""].includes(window.location.hostname);
+    const dynamicAuthDomain = isLocalHost
+      ? "keluarga-me-rona.firebaseapp.com"
+      : window.location.host;
+
     const firebaseConfig = {
       apiKey: "AIzaSyAwZgS8_41BheDYcDzv7qG31F6GoGX61uo",
-      authDomain: "keluarga-me-rona.firebaseapp.com",
+      authDomain: dynamicAuthDomain,
       projectId: "keluarga-me-rona",
       storageBucket: "keluarga-me-rona.firebasestorage.app",
       messagingSenderId: "492601018149",
@@ -531,6 +544,16 @@
     const auth = getAuth(app);
     const db = getFirestore(app);
     const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: "select_account" });
+
+    // Tangani hasil redirect jika login menggunakan mode redirect (Safari / PWA iOS)
+    getRedirectResult(auth).catch((err) => {
+      if (err && err.code) {
+        const errBox = document.getElementById("login-error");
+        errBox.classList.remove("hidden");
+        errBox.textContent = "Gagal menyelesaikan login: " + (err.message || err.code);
+      }
+    });
 
     // Shared family collection paths
     const docsCol = collection(db, "keluarga_me_rona", "vault", "documents");
@@ -627,13 +650,25 @@
       return { num: Math.max(1, Math.round(diff / 365)), unit: "tahun", ring: "border-emerald-500 text-emerald-600 bg-emerald-50" };
     }
 
-    // Auth Handling
+    // Auth Handling (Popup dengan fallback otomatis ke Redirect di iOS/PWA)
     document.getElementById("btn-google-login").addEventListener("click", async () => {
       const errBox = document.getElementById("login-error");
       errBox.classList.add("hidden");
       try {
         await signInWithPopup(auth, provider);
       } catch (err) {
+        if (err.code === "auth/popup-blocked" || err.code === "auth/operation-not-supported-in-this-environment") {
+          try {
+            await signInWithRedirect(auth, provider);
+            return;
+          } catch (redirErr) {
+            errBox.classList.remove("hidden");
+            errBox.textContent = "Gagal masuk: " + (redirErr.message || redirErr.code);
+            return;
+          }
+        }
+        if (err.code === "auth/popup-closed-by-user") return;
+
         errBox.classList.remove("hidden");
         if (err.code === "auth/unauthorized-domain") {
           errBox.innerHTML = `<strong>Domain belum diizinkan di Firebase.</strong><br/>Buka Firebase Console &rarr; Authentication &rarr; Settings &rarr; Authorized domains, lalu tambahkan domain <code>${window.location.hostname}</code>.`;
@@ -723,9 +758,9 @@
       });
     }
 
-    // PIN Lock Logic (stored securely per device in localStorage)
+    // PIN Lock Logic
     const PIN_KEY = "me_rona_pin_v1";
-    let pinMode = "unlock"; // 'unlock' | 'set'
+    let pinMode = "unlock";
     let pinInput = "";
 
     function updatePinStatusUI() {
@@ -932,7 +967,6 @@
     });
 
     function renderSearch() {
-      // Category pills
       const catPills = document.getElementById("search-cat-pills");
       const allCats = [{ id: "Semua", icon: "✨" }, ...CATEGORIES];
       catPills.innerHTML = allCats.map((c) => {
@@ -940,7 +974,6 @@
         return `<button onclick="setFilterCat('${c.id}')" class="shrink-0 px-3.5 py-2 rounded-2xl text-xs font-bold transition ${active ? "bg-blue-600 text-white shadow-md shadow-blue-500/25" : "glass-card text-slate-700"}">${c.icon} ${c.id}</button>`;
       }).join("");
 
-      // Member pills
       const memPills = document.getElementById("search-member-pills");
       const allMems = [{ name: "Semua", avatar: "👥" }, ...state.members];
       memPills.innerHTML = allMems.map((m) => {
@@ -948,7 +981,6 @@
         return `<button onclick="setFilterMember('${m.name.replace(/'/g, "\\'")}')" class="shrink-0 px-3.5 py-2 rounded-2xl text-xs font-bold transition ${active ? "bg-blue-600 text-white shadow-md shadow-blue-500/25" : "glass-card text-slate-700"}">${m.avatar || "👤"} ${m.name}</button>`;
       }).join("");
 
-      // Filtered docs
       const filtered = state.docs.filter((d) => {
         if (state.filterCategory !== "Semua" && d.category !== state.filterCategory) return false;
         if (state.filterMember !== "Semua" && d.owner !== state.filterMember) return false;
@@ -1281,7 +1313,7 @@
       }
     };
 
-    // Watermark Download for safely sharing KTP/SIM via WhatsApp
+    // Watermark Download
     window.downloadWithWatermark = function() {
       const d = state.docs.find((x) => x.id === state.currentDetailId);
       if (!d || !d.photo) return;
@@ -1321,7 +1353,7 @@
       img.src = d.photo;
     };
 
-    // Member Modal (Add / Edit / Delete)
+    // Member Modal
     function renderAvatarPicker() {
       const box = document.getElementById("avatar-picker");
       box.innerHTML = AVATARS.map((av) => `

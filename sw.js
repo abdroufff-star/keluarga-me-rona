@@ -1,4 +1,4 @@
-const CACHE_NAME = 'keluarga-me-rona-v1';
+const CACHE_NAME = 'keluarga-me-rona-v2';
 const ASSETS = [
   './',
   './index.html',
@@ -24,6 +24,11 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
+  const url = new URL(event.request.url);
+  // Jangan pernah mencegat jalur autentikasi Firebase agar login Safari lancar
+  if (url.pathname.startsWith('/__/auth/') || url.pathname.startsWith('/__/firebase/')) {
+    return;
+  }
   event.respondWith(
     fetch(event.request).catch(() => caches.match(event.request))
   );

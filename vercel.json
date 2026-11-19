@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/__/auth/:path*",
+      "destination": "https://keluarga-me-rona.firebaseapp.com/__/auth/:path*"
+    },
+    {
+      "source": "/__/firebase/init.json",
+      "destination": "https://keluarga-me-rona.firebaseapp.com/__/firebase/init.json"
+    }
+  ]
+}
