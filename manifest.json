@@ -1,0 +1,18 @@
+{
+  "name": "KELUARGA ME RONA",
+  "short_name": "Me RONA",
+  "description": "Dokumen dari Keluarga Rouf dan Nanik",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#eef5ff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

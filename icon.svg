@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Keluarga MeRONA</title>
+  <desc id="desc">Logo minimalis dengan tulisan Keluarga berwarna biru dan MeRONA berwarna biru serta emas, dengan garis lengkung emas.</desc>
+  <rect x="43" y="43" width="938" height="938" rx="202" fill="#FFFFFF"/>
+  <rect x="24" y="24" width="976" height="976" rx="220" fill="none" stroke="#0647A8" stroke-width="38"/>
+  <g text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700">
+    <text x="512" y="425" font-size="112" letter-spacing="-3" fill="#0647A8">Keluarga</text>
+    <text x="512" y="625" font-size="190" letter-spacing="-8">
+      <tspan fill="#0647A8">Me</tspan><tspan fill="#E9A000">RONA</tspan>
+    </text>
+  </g>
+  <path d="M165 715 C350 620 675 620 860 685" fill="none" stroke="#E9A000" stroke-width="20" stroke-linecap="round"/>
+</svg>
